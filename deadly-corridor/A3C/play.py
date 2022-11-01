@@ -2,11 +2,7 @@ import os
 import tensorflow as tf
 from agent import *
 
-def play_with_agent(params):
-    
-    if not os.path.exists(params.gif_path):
-        os.makedirs(params.gif_path)
-    
+def play_with_agent(params, model_path):    
     configs = tf.ConfigProto()
     configs.gpu_options.allow_growth = True
     
@@ -17,7 +13,7 @@ def play_with_agent(params):
 
         print('Loading Model...')
         saver = tf.train.Saver()
-        ckpt = tf.train.get_checkpoint_state(params.model_path)
+        ckpt = tf.train.get_checkpoint_state(model_path)
         saver.restore(sess, ckpt.model_checkpoint_path)
         print('Successfully loaded!')
 

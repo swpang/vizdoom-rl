@@ -480,7 +480,7 @@ class Worker():
                 if self.name == 'worker_0' and self.episode_count % params.freq_gif_save == 0 and self.episode_count != 0:
                     time_per_step = 0.05
                     images = np.array(episode_frames)
-                    gif_path = os.path.join(params.frames_path,'image'+str(self.episode_count)+'.gif')
+                    gif_path = os.path.join(os.path.join(params.save_dir, 'player_gifs'),'image'+str(self.episode_count)+'.gif')
                     make_gif(images, gif_path)
                 
                 # Periodically save model parameters
@@ -562,7 +562,7 @@ class Worker():
             if (i+1)%freq_gif==0 or i==0:
                 print("Saving episode GIF..")
                 images = np.array(episode_frames)
-                gif_file = os.path.join(params.gif_path,params.scenario+"_"+str(i+1)+".gif")
+                gif_file = os.path.join(os.path.join(params.save_dir, 'player_gifs'),params.scenario+"_"+str(i+1)+".gif")
                 make_gif(images, gif_file, fps=100)
                 print("Done")
             

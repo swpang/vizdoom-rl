@@ -39,27 +39,11 @@ def parse_arguments():
 
     game_args, _ = parser.parse_known_args()
     
-    game_args.model_path += "/"+game_args.scenario
-    game_args.frames_path += "/"+game_args.scenario
-    game_args.summary_path += "/"+game_args.scenario
-    game_args.gif_path += "/"+game_args.scenario
-    
+    game_args.name += "_" + game_args.scenario
     if game_args.use_ppo:
-        game_args.model_path += "_ppo"
-        game_args.frames_path += "_ppo"
-        game_args.summary_path += "_ppo"
-        game_args.gif_path += "_ppo"
-    
+        game_args.name += "_ppo"
     if game_args.use_curiosity:
-        game_args.model_path += "_curiosity"
-        game_args.frames_path += "_curiosity"
-        game_args.summary_path += "_curiosity"
-        game_args.gif_path += "_curiosity"
-        
+        game_args.name += "_curiosity"        
     if game_args.no_reward:
-        game_args.model_path += "_noreward"
-        game_args.frames_path += "_noreward"
-        game_args.summary_path += "_noreward"
-        game_args.gif_path += "_noreward"
-    
+        game_args.name += "_noreward"
     return game_args

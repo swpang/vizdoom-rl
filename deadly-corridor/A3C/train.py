@@ -10,7 +10,7 @@ from utils.networks import *
 from time import sleep
 from time import time
 
-def train_agents():
+def train_agents(save_dir, model_path):
     tf.reset_default_graph()
     
     # checkpoints directory tree
@@ -20,9 +20,6 @@ def train_agents():
     # ---- frames
     # ---- summary
     # ---- player_gifs
-    
-    save_dir = os.path.join(params.save_dir, params.name)
-    model_path = os.path.join(save_dir, 'model')
     
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
