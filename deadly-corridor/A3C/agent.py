@@ -35,7 +35,7 @@ class Worker():
             self.model_path = model_path
             self.trainer = trainer
             self.initialize_containers()
-            self.summary_writer = tf.summary.FileWriter(os.path.join(params.save_dir, "summary/train_"+str(self.number))
+            self.summary_writer = tf.summary.FileWriter(os.path.join(params.save_dir, "summary/train_"+str(self.number)))
         
         #The Below code is related to setting up the Doom environment  
         self.env, self.actions = create_environment(scenario=params.scenario, no_window=params.no_render, 
