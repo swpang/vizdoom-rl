@@ -4,6 +4,7 @@ import scipy
 import scipy.signal
 import random
 import scipy.misc
+import cv2
 import csv
 import tensorflow.contrib.slim as slim
 import os
@@ -146,7 +147,7 @@ def process_frame(frame, crop, resize):
     """
     y2, y1, x1, x2 = crop
     s = frame[y2:y1,x1:x2]
-    s = scipy.misc.imresize(s,list(resize))
+    s = cv2.resize(s, resize)
     s = np.reshape(s,[np.prod(s.shape)]) / 255.0
     return s
 
