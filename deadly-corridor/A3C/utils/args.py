@@ -46,4 +46,5 @@ def parse_arguments():
         game_args.name += "_curiosity"        
     if game_args.no_reward:
         game_args.name += "_noreward"
+    game_args.save_dir += "/" + game_args.name
     return game_args
